@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:pcs8/pages/cart_page.dart';
-import 'package:pcs8/pages/favorites_page.dart';
-import 'package:pcs8/pages/home_page.dart';
-import 'package:pcs8/pages/profile_page.dart';
-import 'package:pcs8/theme.dart';
+import 'package:shop/pages/cart_page.dart';
+import 'package:shop/pages/favorites_page.dart';
+import 'package:shop/pages/home_page.dart';
+import 'package:shop/pages/profile_page.dart';
+import 'package:shop/theme.dart';
 
 import '../models/product_model.dart';
 import '../services/product_api_service.dart';
-
+import 'chat_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -67,8 +67,12 @@ class _MainPageState extends State<MainPage> {
               children: <Widget>[
                 HomePage(),
                 CartPage(),
-                FavoritesPage(favoriteProducts: products.where((product) => product.isFavorite).toList()),
+                FavoritesPage(
+                    favoriteProducts: products
+                        .where((product) => product.isFavorite)
+                        .toList()),
                 ProfilePage(),
+                ChatPage(),
               ],
             );
           }
@@ -91,6 +95,10 @@ class _MainPageState extends State<MainPage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'Профиль',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.chat),
+            label: 'Чат',
           ),
         ],
         currentIndex: _selectedIndex,

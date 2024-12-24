@@ -1,4 +1,4 @@
-package com.example.pcs8
+package com.vtstudy.shop
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,6 +1,6 @@
 {
-    "name": "pcs8",
-    "short_name": "pcs8",
+    "name": "shop",
+    "short_name": "shop",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

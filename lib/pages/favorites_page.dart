@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pcs8/pages/product_detail_page.dart';
+import 'package:shop/pages/product_detail_page.dart';
 import '../models/product_model.dart';
 
 class FavoritesPage extends StatefulWidget {
