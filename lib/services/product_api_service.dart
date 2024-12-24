@@ -35,12 +35,18 @@ class ProductService {
       throw Exception('Failed to add product');
     }
   }
-  Future<List<Product>> fetchProducts() async {
+  Future<List<Product>> fetchProducts({String? query}) async {
     final response = await http.get(Uri.parse('http://192.168.1.70:8080/products'));
 
     if (response.statusCode == 200) {
       List<dynamic> body = jsonDecode(utf8.decode(response.bodyBytes));
-      return body.map((dynamic item) => Product.fromJson(item)).toList();
+      List<Product> products = body.map((dynamic item) => Product.fromJson(item)).toList();
+
+      if (query != null && query.isNotEmpty) {
+        products = products.where((product) => product.name.toLowerCase().contains(query.toLowerCase())).toList();
+      }
+
+      return products;
     } else {
       throw Exception('Failed to load products');
     }

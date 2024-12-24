@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'PCS11',
       theme: appTheme,
       home: MainPage(),
     );
@@ -78,19 +78,19 @@ class _MainPageState extends State<MainPage> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Home',
+            label: 'Главная',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_cart),
-            label: 'Cart',
+            label: 'Корзина',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.favorite),
-            label: 'Favorites',
+            label: 'Избранное',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            label: 'Profile',
+            label: 'Профиль',
           ),
         ],
         currentIndex: _selectedIndex,

@@ -14,11 +14,19 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late Future<List<Product>> _futureProducts;
+  String _searchQuery = '';
 
   @override
   void initState() {
     super.initState();
     _futureProducts = ProductService().fetchProducts();
+  }
+
+  void _onSearchChanged(String query) {
+    setState(() {
+      _searchQuery = query;
+      _futureProducts = ProductService().fetchProducts(query: _searchQuery);
+    });
   }
 
   void _addToCart(Product product) {
@@ -101,6 +109,22 @@ class _HomePageState extends State<HomePage> {
           style: Theme.of(context).textTheme.headlineMedium,
         ),
         centerTitle: true,
+        bottom: PreferredSize(
+          preferredSize: Size.fromHeight(48.0),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              onChanged: _onSearchChanged,
+              decoration: InputDecoration(
+                hintText: 'Поиск товаров...',
+                prefixIcon: Icon(Icons.search),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+              ),
+            ),
+          ),
+        ),
       ),
       body: FutureBuilder<List<Product>>(
         future: _futureProducts,

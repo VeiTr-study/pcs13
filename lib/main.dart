@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'PCS10',
+      title: 'PCS11',
       theme: appTheme,
       initialRoute: '/',
       routes: {
